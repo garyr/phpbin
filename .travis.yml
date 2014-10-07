@@ -6,5 +6,5 @@ php:
   - 5.6
 
 before_script:
-  - ./bin/console
   - composer install --prefer-dist
+  - ./bin/console
