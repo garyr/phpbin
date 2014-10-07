@@ -41,10 +41,10 @@ class Application extends Silex\Application
         return $this;
     }
 
-    public function run()
+    public function run(Request $request = null)
     {
         $this->initialize();
-        parent::run();
+        parent::run($request);
     }
 
     public function onAfterRequest(Request $request, Response $response)
