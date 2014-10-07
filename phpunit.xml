@@ -18,6 +18,8 @@
     </testsuites>
 
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true" />
+        <whitelist>
+            <directory suffix=".php">./lib/Phpbin/</directory>
+        </whitelist>
     </filter>
 </phpunit>
