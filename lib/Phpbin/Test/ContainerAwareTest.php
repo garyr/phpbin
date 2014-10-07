@@ -7,13 +7,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 abstract class ContainerAwareTest extends \PHPUnit_Framework_TestCase
 {
-    protected $app;
+    protected static $app;
+
     protected $controller;
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->app = new Application();
-        parent::setUp();
+        self::$app = new Application();
+    }
+
+    public static function tearDownAfterClass()
+    {
+        self::$app = null;
     }
 
     public function appRequest()

@@ -20,7 +20,7 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->cookies->set('foo', 'bar');
-        $response = $this->controller->executeIndex($this->app, $request);
+        $response = $this->controller->executeIndex(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertNotEmpty($response->getContent());
@@ -39,7 +39,7 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->query->set('foo', 'bar');
-        $response = $this->controller->executeSet($this->app, $request);
+        $response = $this->controller->executeSet(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals(302, $response->getStatusCode());
         $this->assertTrue($response->headers->has('Set-Cookie'));
@@ -55,7 +55,7 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->query->set('foo', 'bar');
-        $response = $this->controller->executeDelete($this->app, $request);
+        $response = $this->controller->executeDelete(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals(302, $response->getStatusCode());
         $this->assertTrue($response->headers->has('Set-Cookie'));

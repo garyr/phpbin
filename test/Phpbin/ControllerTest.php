@@ -19,7 +19,7 @@ class ControllerTest extends ContainerAwareTest
      */
     public function testIp(Request $request)
     {
-        $response = $this->controller->executeIp($this->app, $request);
+        $response = $this->controller->executeIp(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertNotEmpty($response->getContent());
@@ -37,7 +37,7 @@ class ControllerTest extends ContainerAwareTest
         $userAgent = 'PHPUnit';
         $request = clone $request;
         $request->headers->set('User-Agent', $userAgent);
-        $response = $this->controller->executeUserAgent($this->app, $request);
+        $response = $this->controller->executeUserAgent(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertNotEmpty($response->getContent());
@@ -54,7 +54,7 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->headers->set('x-foo', 'bar');
-        $response = $this->controller->executeHeaders($this->app, $request);
+        $response = $this->controller->executeHeaders(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertNotEmpty($response->getContent());
@@ -72,7 +72,7 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->query->set('X-Foo', 'bar');
-        $response = $this->controller->executeResponseHeaders($this->app, $request);
+        $response = $this->controller->executeResponseHeaders(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertNotEmpty($response->getContent());

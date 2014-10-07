@@ -23,7 +23,7 @@ class ControllerTest extends ContainerAwareTest
         $password = sprintf('phpunit%d', mt_rand(1000, 9999));
         $request->request->set('user', $user);
         $request->request->set('passwd', $password);
-        $response = $this->controller->executeBasicAuth($this->app, $request);
+        $response = $this->controller->executeBasicAuth(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
 
         $this->assertEquals($response->getStatusCode(), 401);
@@ -32,7 +32,7 @@ class ControllerTest extends ContainerAwareTest
         // re-request authorization with bad credentials
         $header = sprintf('Basic %s', base64_encode(sprintf('%s:%s456', $user, $password)));
         $request->headers->set('Authorization', $header);
-        $response = $this->controller->executeBasicAuth($this->app, $request);
+        $response = $this->controller->executeBasicAuth(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals(401, $response->getStatusCode());
         $this->assertNotEmpty($response->getContent());
@@ -44,7 +44,7 @@ class ControllerTest extends ContainerAwareTest
         // re-request authorization with good credentials
         $header = sprintf('Basic %s', base64_encode(sprintf('%s:%s', $user, $password)));
         $request->headers->set('Authorization', $header);
-        $response = $this->controller->executeBasicAuth($this->app, $request);
+        $response = $this->controller->executeBasicAuth(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertNotEmpty($response->getContent());
         $body = json_decode($response->getContent(), true);

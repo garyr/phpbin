@@ -21,7 +21,7 @@ class ControllerTest extends ContainerAwareTest
         $request = clone $request;
         $code = 418;
         $request->request->set('code', $code);
-        $response = $this->controller->executeIndex($this->app, $request);
+        $response = $this->controller->executeIndex(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals($code, $response->getStatusCode());
     }
@@ -36,7 +36,7 @@ class ControllerTest extends ContainerAwareTest
         $request->request->set('code', $code);
         $location = 'http://example.com';
         $request->query->set('Location', $location);
-        $response = $this->controller->executeIndex($this->app, $request);
+        $response = $this->controller->executeIndex(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertEquals($code, $response->getStatusCode());
         $this->assertTrue($response->headers->has('Location'));

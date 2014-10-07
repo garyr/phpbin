@@ -21,10 +21,10 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->setMethod('DELETE');
-        $app_root_dir = $this->app->getContainer()->getParameter('app_root_dir');
+        $app_root_dir = self::$app->getContainer()->getParameter('app_root_dir');
         $UploadedFile = new UploadedFile($app_root_dir . '/phpunit.xml', 'phpunit.xml');
         $request->files->set('filename', $UploadedFile);
-        $response = $this->controller->executeDelete($this->app, $request);
+        $response = $this->controller->executeDelete(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertNotEmpty($response->getContent());
         $body = json_decode($response->getContent(), true);
@@ -43,7 +43,7 @@ class ControllerTest extends ContainerAwareTest
         $request = clone $request;
         $request->query->set('foo', 'bar');
         $request->headers->set('x-foo', 'bar');
-        $response = $this->controller->executeGet($this->app, $request);
+        $response = $this->controller->executeGet(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertNotEmpty($response->getContent());
         $body = json_decode($response->getContent(), true);
@@ -67,10 +67,10 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->setMethod('PATCH');
-        $app_root_dir = $this->app->getContainer()->getParameter('app_root_dir');
+        $app_root_dir = self::$app->getContainer()->getParameter('app_root_dir');
         $UploadedFile = new UploadedFile($app_root_dir . '/phpunit.xml', 'phpunit.xml');
         $request->files->set('filename', $UploadedFile);
-        $response = $this->controller->executePatch($this->app, $request);
+        $response = $this->controller->executePatch(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertNotEmpty($response->getContent());
         $body = json_decode($response->getContent(), true);
@@ -88,10 +88,10 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->setMethod('POST');
-        $app_root_dir = $this->app->getContainer()->getParameter('app_root_dir');
+        $app_root_dir = self::$app->getContainer()->getParameter('app_root_dir');
         $UploadedFile = new UploadedFile($app_root_dir . '/phpunit.xml', 'phpunit.xml');
         $request->files->set('filename', $UploadedFile);
-        $response = $this->controller->executePost($this->app, $request);
+        $response = $this->controller->executePost(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertNotEmpty($response->getContent());
         $body = json_decode($response->getContent(), true);
@@ -109,10 +109,10 @@ class ControllerTest extends ContainerAwareTest
     {
         $request = clone $request;
         $request->setMethod('PUT');
-        $app_root_dir = $this->app->getContainer()->getParameter('app_root_dir');
+        $app_root_dir = self::$app->getContainer()->getParameter('app_root_dir');
         $UploadedFile = new UploadedFile($app_root_dir . '/phpunit.xml', 'phpunit.xml');
         $request->files->set('filename', $UploadedFile);
-        $response = $this->controller->executePut($this->app, $request);
+        $response = $this->controller->executePut(self::$app, $request);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertNotEmpty($response->getContent());
         $body = json_decode($response->getContent(), true);
