@@ -1,0 +1,89 @@
+routes:
+
+  base:
+    pattern:  /
+    controller: Phpbin\Controller\Controller::executeIndex
+    requirements:
+      _method:  GET
+
+  ip:
+    pattern:  /ip
+    controller: Phpbin\Controller\Controller::executeIp
+    requirements:
+      _method:  GET
+
+  user-agent:
+    pattern:  /user-agent
+    controller: Phpbin\Controller\Controller::executeUserAgent
+    requirements:
+      _method:  GET
+
+  headers:
+    pattern:  /headers
+    controller: Phpbin\Controller\Controller::executeHeaders
+    requirements:
+      _method:  GET
+
+  response_headers:
+    pattern:  /response-headers
+    controller: Phpbin\Controller\Controller::executeResponseHeaders
+    requirements:
+      _method:  GET
+
+  get:
+    pattern:  /get
+    controller: Phpbin\Controller\HttpVerb\Controller::executeGet
+    requirements:
+      _method:  GET
+
+  post:
+    pattern:  /post
+    controller: Phpbin\Controller\HttpVerb\Controller::executePost
+    requirements:
+      _method:  POST
+
+  patch:
+    pattern:  /patch
+    controller: Phpbin\Controller\HttpVerb\Controller::executePatch
+    requirements:
+      _method:  PATCH
+
+  put:
+    pattern:  /put
+    controller: Phpbin\Controller\HttpVerb\Controller::executePut
+    requirements:
+      _method:  PUT
+
+  delete:
+    pattern:  /delete
+    controller: Phpbin\Controller\HttpVerb\Controller::executeDelete
+    requirements:
+      _method:  DELETE
+
+  status:
+    pattern:  /status/{code}
+    controller: Phpbin\Controller\Status\Controller::executeIndex
+
+  cookies:
+    pattern:  /cookies
+    controller: Phpbin\Controller\Cookies\Controller::executeIndex
+    requirements:
+      _method:  GET
+
+  cookies_set:
+    pattern:  /cookies/set
+    controller: Phpbin\Controller\Cookies\Controller::executeSet
+    requirements:
+      _method:  GET
+
+  cookies_delete:
+    pattern:  /cookies/delete
+    controller: Phpbin\Controller\Cookies\Controller::executeDelete
+    requirements:
+      _method:  GET
+
+  auth_basic:
+    pattern:  /basic-auth/{user}/{passwd}
+    controller: Phpbin\Controller\Auth\Controller::executeBasicAuth
+    requirements:
+      _method:  GET

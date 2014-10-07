@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__.'/../vendor/autoload.php';
+
+$application = new Phpbin\Console\Application();
+$application->add(new Phpbin\Console\Command\Server());
+$application->run();
