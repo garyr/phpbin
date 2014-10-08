@@ -1,6 +1,9 @@
 {
     "name": "garyr/phpbin",
     "description": "HTTP Client Testing Service",
+    "keywords":["http","client","php","test"],
+    "type":"library",
+    "license":"MIT",
     "authors": [
         {
             "name": "Gary Rogers",
@@ -8,12 +11,13 @@
         }
     ],
     "require": {
+        "php": ">=5.3.3",
         "silex/silex": "v1.2.1",
-        "symfony/config": "2.6.*@dev",
-        "symfony/console": "2.5.*@dev",
-        "symfony/dependency-injection": "2.6.*@dev",
-        "symfony/process": "2.6.*@dev",
-        "symfony/yaml": "2.6.*@dev",
+        "symfony/config": "2.5.*",
+        "symfony/console": "2.5.*",
+        "symfony/dependency-injection": "2.5.*",
+        "symfony/process": "2.5.*",
+        "symfony/yaml": "2.5.*",
         "twig/twig": ">=1.8,<2.0-dev"
     },
     "autoload": {
