@@ -1,6 +1,6 @@
 {
     "name": "garyr/phpbin",
-    "description": "HTTP Testing Client loosly based on httpbin by Kenneth Reitz",
+    "description": "HTTP Client Testing Service",
     "authors": [
         {
             "name": "Gary Rogers",
