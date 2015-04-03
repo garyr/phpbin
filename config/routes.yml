@@ -87,3 +87,9 @@ routes:
     controller: Phpbin\Controller\Auth\Controller::executeBasicAuth
     requirements:
       _method:  GET
+
+  content:
+    pattern:  /content/body
+    controller: Phpbin\Controller\Content\Controller::executeBody
+    requirements:
+      _method:  GET
