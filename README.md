@@ -19,7 +19,7 @@ phpbin: HTTP Client Testing Service
     $ curl http://localhost:8000/get
 
 Response
-```
+```javascript
 {
     "args": {},
     "headers": {
