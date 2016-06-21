@@ -12,12 +12,12 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "silex/silex": "v1.2.1",
-        "symfony/config": "2.5.*",
-        "symfony/console": "2.5.*",
-        "symfony/dependency-injection": "2.5.*",
-        "symfony/process": "2.5.*",
-        "symfony/yaml": "2.5.*",
+        "silex/silex": "~1.2",
+        "symfony/config": "~2.6",
+        "symfony/console": "~2.6",
+        "symfony/dependency-injection": "~2.6",
+        "symfony/process": "~2.6",
+        "symfony/yaml": "~2.6",
         "twig/twig": ">=1.8,<2.0-dev"
     },
     "autoload": {
