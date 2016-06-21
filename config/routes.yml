@@ -36,11 +36,25 @@ routes:
     requirements:
       _method:  GET
 
+  get_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executeGet
+    requirements:
+      _method:  GET
+      path: ".+"
+
   post:
     pattern:  /post
     controller: Phpbin\Controller\HttpVerb\Controller::executePost
     requirements:
       _method:  POST
+
+  post_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executePost
+    requirements:
+      _method:  POST
+      path: ".+"
 
   patch:
     pattern:  /patch
@@ -48,17 +62,38 @@ routes:
     requirements:
       _method:  PATCH
 
+  patch_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executePatch
+    requirements:
+      _method:  PATCH
+      path: ".+"
+
   put:
     pattern:  /put
     controller: Phpbin\Controller\HttpVerb\Controller::executePut
     requirements:
       _method:  PUT
 
+  put_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executePut
+    requirements:
+      _method:  PUT
+      path: ".+"
+
   delete:
     pattern:  /delete
     controller: Phpbin\Controller\HttpVerb\Controller::executeDelete
     requirements:
       _method:  DELETE
+
+  delete_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executeDelete
+    requirements:
+      _method:  DELETE
+      path: ".+"
 
   status:
     pattern:  /status/{code}

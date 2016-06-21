@@ -29,6 +29,12 @@ class Application extends Silex\Application
         foreach ($this->getContainer()->getExtensionConfig('routes')[0] as $name => $route) {
             $controller = $this->match($route['pattern'], $route['controller']);
             $controller->method($route['requirements']['_method']);
+            if (is_array($route['requirements'])) {
+                foreach ($route['requirements'] as $r_key => $requirement) {
+                    if (preg_match('/^_{1}/', $r_key)) continue;
+                    $controller->assert($r_key, $requirement);
+                }
+            }
             $controller->bind($name);
         }
 
