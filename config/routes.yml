@@ -36,25 +36,11 @@ routes:
     requirements:
       _method:  GET
 
-  get_wildcard:
-    pattern:  /{path}
-    controller: Phpbin\Controller\HttpVerb\Controller::executeGet
-    requirements:
-      _method:  GET
-      path: ".+"
-
   post:
     pattern:  /post
     controller: Phpbin\Controller\HttpVerb\Controller::executePost
     requirements:
       _method:  POST
-
-  post_wildcard:
-    pattern:  /{path}
-    controller: Phpbin\Controller\HttpVerb\Controller::executePost
-    requirements:
-      _method:  POST
-      path: ".+"
 
   patch:
     pattern:  /patch
@@ -62,25 +48,11 @@ routes:
     requirements:
       _method:  PATCH
 
-  patch_wildcard:
-    pattern:  /{path}
-    controller: Phpbin\Controller\HttpVerb\Controller::executePatch
-    requirements:
-      _method:  PATCH
-      path: ".+"
-
   put:
     pattern:  /put
     controller: Phpbin\Controller\HttpVerb\Controller::executePut
     requirements:
       _method:  PUT
-
-  put_wildcard:
-    pattern:  /{path}
-    controller: Phpbin\Controller\HttpVerb\Controller::executePut
-    requirements:
-      _method:  PUT
-      path: ".+"
 
   delete:
     pattern:  /delete
@@ -88,16 +60,11 @@ routes:
     requirements:
       _method:  DELETE
 
-  delete_wildcard:
-    pattern:  /{path}
-    controller: Phpbin\Controller\HttpVerb\Controller::executeDelete
-    requirements:
-      _method:  DELETE
-      path: ".+"
-
   status:
     pattern:  /status/{code}
     controller: Phpbin\Controller\Status\Controller::executeIndex
+    requirements:
+      _method:  DELETE|GET|POST|PUT
 
   cookies:
     pattern:  /cookies
@@ -128,3 +95,52 @@ routes:
     controller: Phpbin\Controller\Content\Controller::executeBody
     requirements:
       _method:  GET
+
+  json:
+    pattern:  /json
+    controller: Phpbin\Controller\Json\Controller::executeIndex
+    requirements:
+      _method:  DELETE|GET|POST|PUT
+      path: ".+"
+
+  json_code:
+    pattern:  /json/{code}
+    controller: Phpbin\Controller\Json\Controller::executeIndex
+    requirements:
+      _method:  DELETE|GET|POST|PUT
+      path: ".+"
+
+  get_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executeGet
+    requirements:
+      _method:  GET
+      path: ".+"
+
+  post_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executePost
+    requirements:
+      _method:  POST
+      path: ".+"
+
+  patch_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executePatch
+    requirements:
+      _method:  PATCH
+      path: ".+"
+
+  put_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executePut
+    requirements:
+      _method:  PUT
+      path: ".+"
+
+  delete_wildcard:
+    pattern:  /{path}
+    controller: Phpbin\Controller\HttpVerb\Controller::executeDelete
+    requirements:
+      _method:  DELETE
+      path: ".+"

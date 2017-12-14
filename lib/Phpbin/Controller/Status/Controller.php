@@ -3,11 +3,13 @@
 namespace Phpbin\Controller\Status;
 
 use Phpbin\Web\Application;
+use Phpbin\Web\ResponseTrait;
 use Symfony\Component\HttpFoundation\Request;
-use Phpbin\Component\HttpFoundation\JsonResponse;
 
 class Controller
 {
+    use ResponseTrait;
+
     public function executeIndex(Application $app, Request $request)
     {
         $code = $request->get('code');
@@ -17,6 +19,7 @@ class Controller
             $fkey = implode('-', array_map('ucfirst', explode('-', $key)));
             $headers[$fkey] = $value;
         }
-        return new JsonResponse(null, $code, $headers);
+
+        return $this->handleData($app, $request, $code, $headers);
     }
 }
